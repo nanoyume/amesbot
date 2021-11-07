@@ -22,7 +22,7 @@ async def neko(ctx):
     
 @bot.command()
 async def 持越(ctx, a: int, b: int):
-    await ctx.send('持ち越し時間は[' + a*b + ']秒よ')
+    await ctx.send('持ち越し時間は[' + (a*b) + ']秒よ')
 
 
 token = getenv('DISCORD_BOT_TOKEN')
