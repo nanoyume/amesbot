@@ -19,6 +19,10 @@ async def ping(ctx):
 @bot.command()
 async def neko(ctx):
     await ctx.send('にゃーん')
+    
+@bot.command()
+async def 持越(ctx):
+    await ctx.send('持ち越し時間')
 
 
 token = getenv('DISCORD_BOT_TOKEN')
