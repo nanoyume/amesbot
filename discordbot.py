@@ -39,6 +39,8 @@ async def 持越(ctx, damage: int, zan: int):
 
     if 90 < time:
         time = 90
+    if 90 > time:
+        time = 45
     
     await ctx.send(outstr + '持ち越し時間は[ ' + str(time) + ' ]秒よ')
 
