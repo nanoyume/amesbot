@@ -26,9 +26,11 @@ async def 持越(ctx, damage: int, zan: int):
     # 430 , 100
     # (余剰ダメージ÷総ダメージ)×90+20
     overdamage = damage - zan
-    time = (float(overdamage) / float(damage)) * 90.0 + 20.0    
+    time = (float(overdamage) / float(damage)) * 90.0 + 20.0
+    time = int(math.ceil(time))
+    await ctx.send('与えるダメージ：' + str(damage) + '万')
+    await ctx.send('今の残HP:' + str(zan) + '万')
     await ctx.send('持ち越し時間は[ ' + str(time) + ' ]秒よ')
-
 
 token = getenv('DISCORD_BOT_TOKEN')
 bot.run(token)
