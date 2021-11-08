@@ -21,8 +21,9 @@ async def ping(ctx):
 async def neko(ctx):
     await ctx.send('にゃーん')
     
+# 持ち越し時間の計算
+# 引数：与えるダメージ, 今の残HP
 @bot.command()
-# 与えたダメージ, 残HP
 async def 持越(ctx, damage: int, zan: int):
     outstr = '与えるダメージ：' + str(damage) + '万\n'
     outstr += '残りのHP：' + str(zan) + '万\n'
@@ -30,11 +31,15 @@ async def 持越(ctx, damage: int, zan: int):
     if damage < zan:
         await ctx.send(outstr + '倒せてないわ')
         return
-        
+  
     # (余剰ダメージ÷総ダメージ)×90+20
     overdamage = damage - zan
     time = (float(overdamage) / float(damage)) * 90.0 + 20.0
     time = int(math.ceil(time))
+
+    if 90 < time:
+        time = 90
+    
     await ctx.send(outstr + '持ち越し時間は[ ' + str(time) + ' ]秒よ')
 
 token = getenv('DISCORD_BOT_TOKEN')
