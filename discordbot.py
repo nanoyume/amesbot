@@ -21,8 +21,13 @@ async def neko(ctx):
     await ctx.send('にゃーん')
     
 @bot.command()
-async def 持越(ctx, a: int, b: int):
-    await ctx.send('持ち越し時間は[ ' + str(a*b) + ' ]秒よ')
+# 与えたダメージ, 残HP
+async def 持越(ctx, damage: int, zan: int):
+    # 430 , 100
+    # (余剰ダメージ÷総ダメージ)×90+20
+    overdamage = damage - zan
+    time = (float(overdamage) / float(damage)) * 90.0 + 20.0    
+    await ctx.send('持ち越し時間は[ ' + str(time) + ' ]秒よ')
 
 
 token = getenv('DISCORD_BOT_TOKEN')
