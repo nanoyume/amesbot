@@ -29,7 +29,7 @@ async def 持越(ctx, damage: int, zan: int):
     
     if damage < zan:
         await ctx.send('倒せてないわ')
-        retuen
+        return
         
     # (余剰ダメージ÷総ダメージ)×90+20
     overdamage = damage - zan
