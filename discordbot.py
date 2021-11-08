@@ -24,18 +24,18 @@ async def neko(ctx):
 @bot.command()
 # 与えたダメージ, 残HP
 async def 持越(ctx, damage: int, zan: int):
-    await ctx.send('与えるダメージ：' + str(damage) + '万')
-    await ctx.send('残りのHP：' + str(zan) + '万')
+    outstr = '与えるダメージ：' + str(damage) + '万\n'
+    outstr += '残りのHP：' + str(zan) + '万\n'
     
     if damage < zan:
-        await ctx.send('倒せてないわ')
+        await ctx.send(outstr + '倒せてないわ')
         return
         
     # (余剰ダメージ÷総ダメージ)×90+20
     overdamage = damage - zan
     time = (float(overdamage) / float(damage)) * 90.0 + 20.0
     time = int(math.ceil(time))
-    await ctx.send('持ち越し時間は[ ' + str(time) + ' ]秒よ')
+    await ctx.send(outstr + '持ち越し時間は[ ' + str(time) + ' ]秒よ')
 
 token = getenv('DISCORD_BOT_TOKEN')
 bot.run(token)
