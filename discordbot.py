@@ -45,9 +45,18 @@ async def 持越(ctx, damage: int, zan: int):
 #TL秒数改変
 @bot.command()
 async def TL(ctx, time: int, tlstr: str):
-    if 90 < time:
+    orgtime = []
+    for num in range(90):
         Minutes = 90 / 60
         Seconds = 90 % 60
+        orgtime.append(str(Minutes) + ':' + str(Seconds))
+    
+    for val in orgtime:
+        outstr += val
+        outstr += '\n'
+    
+    #convertime = []
+    #convertime.append()
     
     sp = tlstr.split('\n')
     
