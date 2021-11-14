@@ -56,8 +56,8 @@ async def TL(ctx, time: int, tlstr: str):
     for val in sp:
         sp2 = val.split(':')
         for val2 in sp2:
-            //val = val.replace('1:', '0:')
-            //val = val.replace(':17', ':16')
+            #val = val.replace('1:', '0:')
+            #val = val.replace(':17', ':16')
             outstr += val2
             outstr += '\n'
     
