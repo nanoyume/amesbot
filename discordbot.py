@@ -48,9 +48,12 @@ async def TL(ctx, time: int, tlstr: str):
     sp = tlstr.split('\n')
     
     outstr = ''
+    outstr += '```\n'
     for val in sp:
         outstr += val
+        outstr += '@\n'
     
+    outstr += '```'
     await ctx.send(outstr)
     
 token = getenv('DISCORD_BOT_TOKEN')
