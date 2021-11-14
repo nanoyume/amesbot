@@ -48,10 +48,10 @@ async def TL(ctx, time: int, tlstr: str):
     sp = tlstr.split('\n')
     
     outstr = ''
-    outstr += '```\n'
+    outstr += '```c++\n'
     for val in sp:
         outstr += val
-        outstr += '@\n'
+        outstr += '\n'
     
     outstr += '```'
     await ctx.send(outstr)
