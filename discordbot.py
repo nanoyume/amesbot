@@ -46,27 +46,40 @@ async def 持越(ctx, damage: int, zan: int):
 @bot.command()
 async def TL(ctx, time: int, tlstr: str):
     orgtime = []
+    counter = 1
     for num in range(90):
-        Minutes = 90 / 60
-        Seconds = 90 % 60
-        orgtime.append(str(Minutes) + ':' + str(Seconds))
-    
-    for val in orgtime:
-        outstr += val
-        outstr += '\n'
-    
-    #convertime = []
-    #convertime.append()
+        Minutes = math.floor(counter / 60)
+        Seconds = counter % 60
+        if Seconds < 10:
+            orgtime.append(str(Minutes) + ':0' + str(Seconds))
+        else:
+            orgtime.append(str(Minutes) + ':' + str(Seconds))
+        counter+=1
+        
+    convertime = []
+    counter = 89
+    for num in range(90):
+        Minutes = math.floor((time-counter) / 60)
+        Seconds = (time-counter) % 60
+        if Minutes < 0:
+            convertime.append('0:00')
+        elif Seconds < 10:
+            convertime.append(str(Minutes) + ':0' + str(Seconds))
+        else:
+            convertime.append(str(Minutes) + ':' + str(Seconds))
+        counter-=1
     
     sp = tlstr.split('\n')
     
     outstr = '持ち越し時間にTLを書き換えたわ'
     outstr += '```c++\n'
     for val in sp:
-        #sp2 = val.split(':')
+        for num in range(90):
+            val = val.replace(orgtime[num], convertime[num])
 
-        val = val.replace('1:', '0:')
-        val = val.replace(':17', ':16')
+        if val.startswith('0:00'):
+            break
+
         outstr += val
         outstr += '\n'
     
