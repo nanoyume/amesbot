@@ -60,7 +60,6 @@ async def TL(ctx, time: int, tlstr: str):
         val = val.replace(':17', ':16')
         #outstr += val2
         outstr += '\n'
-        counter++
     
     outstr += '```'
     await ctx.send(outstr)
