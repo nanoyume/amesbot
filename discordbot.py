@@ -57,13 +57,17 @@ async def TL(ctx, time: int, tlstr: str):
         sp2 = val.split(':')
         
         counter = 0
+        await ctx.send('pass1')
         for val2 in sp2:
             if len(sp2) <= 2:
+                await ctx.send('pass2')
                 if (counter%2) == 0:
+                    await ctx.send('pass3')
                     outstr += val2[-1:]
                     outstr += '\n'
                     counter++
                 else:
+                    await ctx.send('pass4')
                     outstr += val2[0:2]
                     #val = val.replace('1:', '0:')
                     #val = val.replace(':17', ':16')
@@ -71,6 +75,7 @@ async def TL(ctx, time: int, tlstr: str):
                     outstr += '\n'
                     counter++
             else:
+                await ctx.send('pass5')
                 outstr += val2
                 outstr += '\n'
     
