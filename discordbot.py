@@ -71,7 +71,7 @@ async def TL(ctx, time: int, tlstr: str):
     
     sp = tlstr.split('\n')
     
-    outstr = '持ち越し時間にTLを書き換えたわ'
+    outstr = '持ち越し時間でTLを書き換えたわ'
     outstr += '```c++\n'
     for val in sp:
         for num in range(90):
