@@ -47,9 +47,11 @@ async def 持越(ctx, damage: int, zan: int):
 async def TL(ctx, time: int, tlstr: str):
     sp = tlstr.split('\n')
     
-    outstr = ''
+    outstr = '持ち越し時間にTLを書き換えたわ'
     outstr += '```c++\n'
     for val in sp:
+        val = val.replace('1:', '0:')
+        val = val.replace(':17', ':16')
         outstr += val
         outstr += '\n'
     
