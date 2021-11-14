@@ -45,15 +45,21 @@ async def 持越(ctx, damage: int, zan: int):
 #TL秒数改変
 @bot.command()
 async def TL(ctx, time: int, tlstr: str):
+    if 90 < time:
+        Minutes = 90 / 60
+        Seconds = 90 % 60
+    
     sp = tlstr.split('\n')
     
     outstr = '持ち越し時間にTLを書き換えたわ'
     outstr += '```c++\n'
     for val in sp:
-        val = val.replace('1:', '0:')
-        val = val.replace(':17', ':16')
-        outstr += val
-        outstr += '\n'
+        sp2 = val.split(':')
+        for val2 in sp2:
+            //val = val.replace('1:', '0:')
+            //val = val.replace(':17', ':16')
+            outstr += val2
+            outstr += '\n'
     
     outstr += '```'
     await ctx.send(outstr)
