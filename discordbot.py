@@ -45,7 +45,11 @@ async def 持越(ctx, damage: int, zan: int):
 #TL秒数改変
 @bot.command()
 async def TL(ctx, time: int, *tlstr: str):
-    await ctx.send(tlstr)
+    outstr = ''
+    for val in tlstr:
+        outstr += val
+    
+    await ctx.send(outstr)
     
 token = getenv('DISCORD_BOT_TOKEN')
 bot.run(token)
