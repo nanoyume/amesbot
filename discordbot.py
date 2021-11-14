@@ -45,10 +45,11 @@ async def 持越(ctx, damage: int, zan: int):
 #TL秒数改変
 @bot.command()
 async def TL(ctx, time: int, tlstr: str):
+    sp = tlstr.split('\n')
+    
     outstr = ''
-#    for val in tlstr:
-#        outstr += val
-    outstr += tlstr
+    for val in sp:
+        outstr += val
     
     await ctx.send(outstr)
     
