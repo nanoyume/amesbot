@@ -58,7 +58,7 @@ async def TL(ctx, time: int, tlstr: str):
         
         counter = 0
         for val2 in sp2:
-            if len(sp2) >= 2:
+            if len(sp2) <= 2:
                 if (counter%2) == 0:
                     outstr += val2[-1:]
                     outstr += '\n'
