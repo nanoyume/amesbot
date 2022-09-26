@@ -1,14 +1,20 @@
-from discord.ext import commands
-from os import getenv
-import traceback
-import math
-import discord
+from discord import commands
+from discord import guild
 from discord_slash import SlashCommand, SlashContext
+from discord_slash.utils.manage_commands import create_choice, create_option
 
 # bot = commands.Bot(command_prefix='/')
-bot = discord.Client(intents=discord.Intents.all())
+client = commands.Bot(command_prefix='!')
+slash = SlashCommand(client, sync_commands=True)
 
-slash_client = SlashCommand(bot)
+@slash.slash{
+    name="hello",
+    description="Just sends a message",
+    guild_ids=[669570069935816714]
+}
+
+async def _hello(ctx:SlashContext):
+    await ctx.send("World!")
 
 @bot.event
 async def on_command_error(ctx, error):
