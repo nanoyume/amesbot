@@ -42,7 +42,7 @@ async def 持越(ctx, damage: int, zan: int):
 
     await ctx.send(outstr + '持ち越し時間は[ ' + str(time) + ' ]秒よ')
 
-#TL秒数改変
+# TL秒数改変
 @bot.command()
 async def TL(ctx, time: int, tlstr: str):
     orgtime = []
@@ -54,20 +54,20 @@ async def TL(ctx, time: int, tlstr: str):
             orgtime.append(str(Minutes) + ':0' + str(Seconds))
         else:
             orgtime.append(str(Minutes) + ':' + str(Seconds))
-        counter+=1
+        counter += 1
 
     convertime = []
     counter = 89
     for num in range(90):
-        Minutes = math.floor((time-counter) / 60)
-        Seconds = (time-counter) % 60
+        Minutes = math.floor((time - counter) / 60)
+        Seconds = (time - counter) % 60
         if Minutes < 0:
             convertime.append('0:00')
         elif Seconds < 10:
             convertime.append(str(Minutes) + ':0' + str(Seconds))
         else:
             convertime.append(str(Minutes) + ':' + str(Seconds))
-        counter-=1
+        counter -= 1
 
     sp = tlstr.split('\n')
 
