@@ -7,11 +7,11 @@ from discord_slash.utils.manage_commands import create_choice, create_option
 client = commands.Bot(command_prefix='!')
 slash = SlashCommand(client, sync_commands=True)
 
-@slash.slash{
+@slash.slash(
     name="hello",
     description="Just sends a message",
     guild_ids=669570069935816714
-}
+)
 async def _hello(ctx:SlashContext):
     await ctx.send("World!")
 
