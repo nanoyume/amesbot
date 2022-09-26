@@ -7,6 +7,7 @@ from discord_slash.utils.manage_commands import create_choice, create_option
 # bot = commands.Bot(command_prefix='/')
 client = discord.Bot()
 
+
 @bot.event
 async def on_command_error(ctx, error):
     orig_error = getattr(error, "original", error)
