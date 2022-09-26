@@ -88,3 +88,4 @@ async def TL(ctx, time: int, tlstr: str):
     
 token = getenv('DISCORD_BOT_TOKEN')
 bot.run(token)
+
