@@ -1,3 +1,4 @@
+import discord
 from discord import commands
 from discord.ext import guild
 from discord_slash import SlashCommand, SlashContext
