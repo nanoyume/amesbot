@@ -4,16 +4,7 @@ from discord_slash import SlashCommand, SlashContext
 from discord_slash.utils.manage_commands import create_choice, create_option
 
 # bot = commands.Bot(command_prefix='/')
-client = commands.Bot(command_prefix='!')
-slash = SlashCommand(client, sync_commands=True)
-
-@slash.slash(
-    name="hello",
-    description="Just sends a message",
-    guild_ids=[669570069935816714]
-)
-async def _hello(ctx:SlashContext):
-    await ctx.send("World!")
+client = discord.Bot()
 
 @bot.event
 async def on_command_error(ctx, error):
@@ -21,9 +12,13 @@ async def on_command_error(ctx, error):
     error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
     await ctx.send(error_msg)
 
-@bot.event
+@client.event
 async def on_ready():
-    print('bot ready.')
+    print("on_ready")
+
+@client.slash_command()
+async def hello(ctx):
+    await ctx.respond("こんにちはー")
 
 # @bot.command()
 @slash_client.slash(name="ping")
