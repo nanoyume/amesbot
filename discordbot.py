@@ -10,7 +10,7 @@ slash = SlashCommand(client, sync_commands=True)
 @slash.slash(
     name="hello",
     description="Just sends a message",
-    guild_ids=669570069935816714
+    guild_ids=[669570069935816714]
 )
 async def _hello(ctx:SlashContext):
     await ctx.send("World!")
