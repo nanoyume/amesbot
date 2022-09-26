@@ -5,8 +5,10 @@ import math
 import discord
 from discord_slash import SlashCommand, SlashContext
 
-bot = commands.Bot(command_prefix='/')
+# bot = commands.Bot(command_prefix='/')
+bot = discord.Client(intents=discord.Intents.all())
 
+slash_client = SlashCommand(bot)
 
 @bot.event
 async def on_command_error(ctx, error):
@@ -14,12 +16,17 @@ async def on_command_error(ctx, error):
     error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
     await ctx.send(error_msg)
 
+@bot.event
+async def on_ready():
+  print('bot ready.')
 
-@bot.command()
+# @bot.command()
+@slash_client.slash(name="ping")
 async def ping(ctx):
     await ctx.send('pong')
 
-@bot.command()
+# @bot.command()
+@slash_client.slash(name="neko")
 async def neko(ctx):
     await ctx.send('にゃーん')
 
