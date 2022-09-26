@@ -18,7 +18,7 @@ async def on_command_error(ctx, error):
 
 @bot.event
 async def on_ready():
-  print('bot ready.')
+    print('bot ready.')
 
 # @bot.command()
 @slash_client.slash(name="ping")
