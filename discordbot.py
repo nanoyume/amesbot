@@ -21,12 +21,12 @@ async def hello(ctx):
     await ctx.respond("こんにちはー")
 
 # @bot.command()
-@slash_client.slash(name="ping")
+@client.slash(name="ping")
 async def ping(ctx):
     await ctx.send('pong')
 
 # @bot.command()
-@slash_client.slash(name="neko")
+@client.slash(name="neko")
 async def neko(ctx):
     await ctx.send('にゃーん')
 
